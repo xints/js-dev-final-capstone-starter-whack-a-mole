@@ -101,9 +101,11 @@ function chooseHole(holes) {
 function gameOver() {
   // TODO: Write your code here
  if(time>0){
-  return showUp();
+  const timeoutId = showUp();
+  return timeoutId;
  } else{
-  stopGame();
+  const gameStopped = stopGame;
+  return gameStopped();
  }
 }
 
@@ -138,7 +140,7 @@ function showAndHide(hole, delay){
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
   toggleVisibility(hole);  
     gameOver();
-  }, 0); // TODO: change the setTimeout delay to the one provided as a parameter
+  }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
 
@@ -166,7 +168,8 @@ function toggleVisibility(hole){
 */
 function updateScore() {
   // TODO: Write your code here
-
+ points++;
+ score.textContent = points;
   return points;
 }
 
@@ -179,8 +182,8 @@ function updateScore() {
 */
 function clearScore() {
   // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  points = 0;
+  score.textContent = points;
   return points;
 }
 
@@ -192,7 +195,10 @@ function clearScore() {
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
-  
+  if (time > 0) {
+    time -= 1; // timer count down 
+    timerDisplay.textContent = time; // Update the timer display 
+  }
   return time;
 }
 
@@ -205,6 +211,7 @@ function updateTimer() {
 function startTimer() {
   // TODO: Write your code here
   // timer = setInterval(updateTimer, 1000);
+  timer = setInterval(updateTimer, 1000); 
   return timer;
 }
 
@@ -218,7 +225,9 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
+ 
   // call updateScore()
+  updateScore();
   return points;
 }
 
@@ -229,6 +238,10 @@ function whack(event) {
 */
 function setEventListeners(){
   // TODO: Write your code here
+const moles = document.querySelectorAll('.mole');
+moles.forEach(function(mole){
+  mole.addEventListener('click', whack);
+})
 
   return moles;
 }
