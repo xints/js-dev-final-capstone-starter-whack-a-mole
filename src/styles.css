@@ -1,6 +1,7 @@
 html {
-  /*background: url('./assets/background.png') no-repeat center center fixed;*/
-  background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed;
+  /*background: url('./assets/Park.jpg') no-repeat center center fixed;*/
+  /* background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed; */
+background-image: url('./../assets/park3.avif');
   box-sizing: border-box;
   -webkit-background-size: cover;
   -moz-background-size: cover;

@@ -48,7 +48,7 @@ If you're unsure about uploading your work, revisit the *Pushing and Pulling* le
 
 ### No AI Assistance
 
-For your final capstone project, it's crucial that you work independently and refrain from using AI tools like SkillMate or ChatGPT. This approach is vital for a number of reasons: it nurtures essential critical thinking and problem-solving skills, which are crucial for grasping complex concepts; it prepares you for live coding challenges in technical interviews; it equips you to handle unique professional scenarios where AI tools may not be available; and it guarantees that the assessments genuinely represent your skill level.
+For your final caps tone project, it's crucial thatyou work independently and refrain from using AI tools like SkillMate or ChatGPT. This approach is vital for a number of reasons: it nurtures essential critical thinking and problem-solving skills, which are crucial for grasping complex concepts; it prepares you for live coding challenges in technical interviews; it equips you to handle unique professional scenarios where AI tools may not be available; and it guarantees that the assessments genuinely represent your skill level.
 
 While AI tools are beneficial for practice, they should not substitute your effort in assessments. We trust in your commitment to honesty and self-improvement and wish you the best in your learning journey.
 
