@@ -1,4 +1,5 @@
-const holes = document.querySelectorAll('.hole');
+
+  const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
@@ -67,14 +68,14 @@ function setDelay(difficulty) {
  */
 function chooseHole(holes) {
   // TODO: Write your code here.
-  const randomHoles = randomInteger(0,8);
-  const hole = holes[randomHoles];
+  const index = randomInteger(0, 8);
+  const hole = holes[index];
   if (hole === chooseHole.lastHole){
     return chooseHole(holes);
-  }
+  } else {
   chooseHole.lastHole = hole;
 
-  return hole;
+  return hole;}
 
 }
 
@@ -104,8 +105,8 @@ function gameOver() {
   const timeoutId = showUp();
   return timeoutId;
  } else{
-  const gameStopped = stopGame;
-  return gameStopped();
+  gameStopped = stopGame();
+  return gameStopped
  }
 }
 
@@ -119,8 +120,8 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = setDelay(); // TODO: Update so that it uses setDelay()
-  const hole = chooseHole();  // TODO: Update so that it use chooseHole()
+  let delay = setDelay(difficulty); // TODO: Update so that it uses setDelay()
+  const hole = chooseHole(holes);  // TODO: Update so that it use chooseHole()
   return showAndHide(hole, delay);
 }
 
@@ -134,8 +135,8 @@ function showUp() {
 */
 function showAndHide(hole, delay){
   // TODO: call the toggleVisibility function so that it adds the 'show' class.
-  toggleVisibility(hole);
-
+  // toggleVisibility(hole);
+  toggleVisibility(hole); 
   const timeoutID = setTimeout(() => {
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
   toggleVisibility(hole);  
@@ -199,7 +200,9 @@ function updateTimer() {
     time -= 1; // timer count down 
     timerDisplay.textContent = time; // Update the timer display 
   }
-  return time;
+  if (time === 0) {clearInterval(timer);
+  return stopGame();
+}
 }
 
 /**
@@ -225,9 +228,11 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
- 
+ console.log('whack!')
   // call updateScore()
+  if (time >0){
   updateScore();
+  }
   return points;
 }
 
@@ -236,16 +241,16 @@ function whack(event) {
 * Adds the 'click' event listeners to the moles. See the instructions
 * for an example on how to set event listeners using a for loop.
 */
-function setEventListeners(){
+function setEventListeners()
+{
   // TODO: Write your code here
-const moles = document.querySelectorAll('.mole');
-moles.forEach(function(mole){
-  mole.addEventListener('click', whack);
-})
+moles.forEach(mole =>
+  mole.addEventListener('click', whack)
+);
 
   return moles;
 }
-
+setEventListeners();
 /**
 *
 * This function sets the duration of the game. The time limit, in seconds,
@@ -278,6 +283,9 @@ function stopGame(){
 function startGame(){
   setDuration(10);
   showUp();
+  startTimer();
+  clearScore();
+  setEventListeners();
   return "game started";
 }
 
