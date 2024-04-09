@@ -1,3 +1,23 @@
+// adding audio resources
+const audioHit = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/hit.mp3?raw=true");
+const song = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/molesong.mp3?raw=true");
+
+function playAudio(audioObject) {
+  audioObject.play();
+}
+
+function loopAudio(audioObject) {
+  audioObject.loop = true;
+  playAudio(audioObject);
+}
+
+function stopAudio(audioObject) {
+  audioObject.pause();
+}
+
+function play(){
+  playAudio(song);
+}
 
   const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
@@ -229,6 +249,7 @@ function startTimer() {
 function whack(event) {
   // TODO: Write your code here.
  console.log('whack!')
+ playAudio(audioHit);
   // call updateScore()
   if (time >0){
   updateScore();
@@ -286,6 +307,7 @@ function startGame(){
   startTimer();
   clearScore();
   setEventListeners();
+  play();
   return "game started";
 }
 
